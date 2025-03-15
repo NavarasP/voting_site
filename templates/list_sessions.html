@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Voting Sessions</title>
+</head>
+<body>
+    <h1>Active Voting Sessions</h1>
+    <ul>
+        {% for session in active_sessions %}
+            <li>
+                {{ session.name }} ({{ session.start_time }} to {{ session.end_time }})
+                <a href="{% url 'biometric_verification' session.id %}">Vote</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
